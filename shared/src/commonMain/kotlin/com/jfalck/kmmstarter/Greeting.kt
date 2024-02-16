@@ -1,9 +1,13 @@
 package com.jfalck.kmmstarter
 
-class Greeting {
-    private val platform: Platform = getPlatform()
+import io.ktor.client.HttpClient
+import io.ktor.client.request.get
+import io.ktor.client.statement.bodyAsText
 
-    fun greet(): String {
-        return "Hello, ${platform.name}!"
+class Greeting(private val platform: Platform, private val httpClient: HttpClient) {
+    suspend fun greet(): String {
+        val response = httpClient.get("https://ktor.io/docs/")
+        return response.bodyAsText() + "\n ${platform.name}"
+        //return "Hello, ${platform.name}!"
     }
 }

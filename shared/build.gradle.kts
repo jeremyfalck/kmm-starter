@@ -25,10 +25,17 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            api("io.insert-koin:koin-core:$3.5.3")
+            implementation(libs.koin.core)
+            implementation(libs.koin.test)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.core)
+            implementation(libs.kotlinx.coroutines.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
     }
 }
