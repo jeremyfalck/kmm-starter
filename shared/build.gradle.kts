@@ -25,11 +25,19 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.koin.core)
-            implementation(libs.koin.test)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.core)
+            //Coroutines
             implementation(libs.kotlinx.coroutines.core)
+
+            //Ktor
+            implementation(libs.ktor.client.core)
+
+            // Koin
+            implementation(libs.koin.core)
+            implementation(libs.koin.core.coroutines)
+            implementation(libs.koin.test)
+
+            //Logging
+            implementation(libs.kermit)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

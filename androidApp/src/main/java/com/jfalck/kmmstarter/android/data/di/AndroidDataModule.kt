@@ -5,5 +5,5 @@ import com.jfalck.kmmstarter.domain.repository.GreetingRepository
 import org.koin.dsl.module
 
 val androidDataModule = module {
-    factory<GreetingRepository> { GreetingRepositoryImpl(get()) }
+    factory<GreetingRepository> { GreetingRepositoryImpl(get(), get(), get()) }
 }

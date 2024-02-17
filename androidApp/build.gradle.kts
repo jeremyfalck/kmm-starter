@@ -40,13 +40,25 @@ android {
 
 dependencies {
     implementation(projects.shared)
+
+    //Compose
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
 
+    //Koin
     implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.androidx.compose.navigation)
+
+    //Ktor
     implementation(libs.ktor.client.okhttp)
+
+    //Coroutines
     implementation(libs.kotlinx.coroutines.android)
+
+    //Navigation Compose
+    implementation(libs.navigation.compose)
 }
