@@ -5,9 +5,11 @@
 
     <application
             android:name=".presentation.app.StarterApplication"
+            android:label="KMM Starter"
             android:allowBackup="false"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:icon="@mipmap/kotlin_logo">
         <activity
                 android:name=".presentation.MainActivity"
                 android:exported="true">
