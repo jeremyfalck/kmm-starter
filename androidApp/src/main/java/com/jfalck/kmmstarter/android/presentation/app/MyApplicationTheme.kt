@@ -1,4 +1,4 @@
-package com.jfalck.kmmstarter.android
+package com.jfalck.kmmstarter.android.presentation.app
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
