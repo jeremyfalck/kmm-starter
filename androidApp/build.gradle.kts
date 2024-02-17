@@ -3,6 +3,10 @@ plugins {
     alias(libs.plugins.kotlinAndroid)
 }
 
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
+}
+
 android {
     namespace = "com.jfalck.kmmstarter.android"
     compileSdk = 34
@@ -22,6 +26,8 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/LICENSE.md"
+            excludes += "META-INF/LICENSE-notice.md"
         }
     }
     buildTypes {
@@ -52,6 +58,8 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
     implementation(libs.koin.androidx.compose.navigation)
+    implementation(libs.koin.test.jvm)
+    implementation(libs.koin.android.test)
 
     //Ktor
     implementation(libs.ktor.client.okhttp)
@@ -61,4 +69,13 @@ dependencies {
 
     //Navigation Compose
     implementation(libs.navigation.compose)
+
+    //Kotest
+    testImplementation(libs.kotest)
+    testImplementation(libs.kotest.framework.engine)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotest.property)
+
+    //Mockk
+    implementation(libs.mockk)
 }

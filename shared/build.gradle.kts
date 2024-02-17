@@ -3,6 +3,10 @@ plugins {
     alias(libs.plugins.androidLibrary)
 }
 
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
+}
+
 kotlin {
     androidTarget {
         compilations.all {
@@ -38,9 +42,14 @@ kotlin {
 
             //Logging
             implementation(libs.kermit)
+
         }
         commonTest.dependencies {
-            implementation(libs.kotlin.test)
+            //Kotest
+            implementation(libs.kotest)
+            implementation(libs.kotest.framework.engine)
+            implementation(libs.kotest.assertions.core)
+            implementation(libs.kotest.property)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

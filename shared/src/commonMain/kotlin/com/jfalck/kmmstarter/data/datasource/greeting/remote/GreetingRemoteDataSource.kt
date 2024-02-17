@@ -12,5 +12,9 @@ class GreetingRemoteDataSource(private val httpClient: HttpClient) : GreetingDat
     }
 
     override suspend fun getGreeting(): String =
-        httpClient.get(GREETING_ENDPOINT).bodyAsText()
+        try {
+            httpClient.get(GREETING_ENDPOINT).bodyAsText()
+        } catch (e: Exception) {
+            ""
+        }
 }

@@ -21,6 +21,7 @@ import com.jfalck.kmmstarter.android.presentation.MainActivity.Companion.ROUTE_T
 import com.jfalck.kmmstarter.android.presentation.app.MyApplicationTheme
 import org.koin.androidx.compose.KoinAndroidContext
 import org.koin.androidx.compose.koinViewModel
+import org.koin.core.annotation.KoinExperimentalAPI
 
 class MainActivity : ComponentActivity() {
 
@@ -34,18 +35,11 @@ class MainActivity : ComponentActivity() {
         initView()
     }
 
+    @OptIn(KoinExperimentalAPI::class)
     private fun initView() {
         setContent {
-            val navController = rememberNavController()
-            KoinAndroidContext() {
+            KoinAndroidContext {
                 AppTheme {
-                    /*val text by mainViewModel.greetingStateFlow.collectAsState()
-                    Column(
-                        modifier = Modifier
-                            .verticalScroll(rememberScrollState())
-                    ) {
-                        Text(text)
-                    }*/
                     AppNavHost()
                 }
             }
